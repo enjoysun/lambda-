@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetAttachment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xzqdm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tblx" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tbbh" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="attachmentName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAttachmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAttachmentResult" type="tns:SingleResultOfArrayOfByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SingleResultOfArrayOfByte">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:base64Binary" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Result">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NoReceiveDatas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xzqs" type="tns:ArrayOfReceiveEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfReceiveEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ReceiveEntity" nillable="true" type="tns:ReceiveEntity" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReceiveEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="XZQDM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FILENAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BSM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RYNAME" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NoReceiveDatasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NoReceiveDatasResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SingleResultOfString">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ReceiveDatas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xzqs" type="tns:ArrayOfReceiveEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveDatasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReceiveDatasResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveHLFJList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xzqdm" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="tblx" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="tbbsm" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="savename" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="fjlx" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="fj" type="tns:ArrayOfBase64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBase64Binary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="base64Binary" nillable="true" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveHLFJListResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SaveHLFJ">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xzqdm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tblx" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tbbsm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="savename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fjlx" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fj" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveHLFJResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReceiveLxjzDatas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xzqs" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="isMerge" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveLxjzDatasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReceiveLxjzDatasResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpLoadFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="folderName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="dataLength" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="firstChunk" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastChunk" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="xzqdm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpLoadFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpLoadFileResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="importParams" type="tns:ArrayOfImportParams" />
+            <s:element minOccurs="0" maxOccurs="1" name="xzqdm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfImportParams">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ImportParams" nillable="true" type="tns:ImportParams" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ImportParams">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LayerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fields" type="tns:ArrayOfTableField" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsAppend" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="JasonVectorDataTemplate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SelectLayerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BatchDataBsm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OSSObjectName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTableField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TableField" nillable="true" type="tns:TableField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TableField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alias" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FieldType" type="tns:TypeCode" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsNull" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPrimaryKey" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="FieldLength" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TypeCode">
+        <s:restriction base="s:string">
+          <s:enumeration value="Empty" />
+          <s:enumeration value="Object" />
+          <s:enumeration value="DBNull" />
+          <s:enumeration value="Boolean" />
+          <s:enumeration value="Char" />
+          <s:enumeration value="SByte" />
+          <s:enumeration value="Byte" />
+          <s:enumeration value="Int16" />
+          <s:enumeration value="UInt16" />
+          <s:enumeration value="Int32" />
+          <s:enumeration value="UInt32" />
+          <s:enumeration value="Int64" />
+          <s:enumeration value="UInt64" />
+          <s:enumeration value="Single" />
+          <s:enumeration value="Double" />
+          <s:enumeration value="Decimal" />
+          <s:enumeration value="DateTime" />
+          <s:enumeration value="String" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ImportDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImportDataResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTaskDb">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deleteOrgDms" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTaskDbResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="BackData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="backOrgDms" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="backPC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BackDataResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="OSSShptodb">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="importParams" type="tns:ArrayOfImportParams" />
+            <s:element minOccurs="0" maxOccurs="1" name="xzqdm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OSSShptodbResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateLayerState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tbbh" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xzqdm" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sbbh" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLayerStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateLayerStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryLayer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xzqdm" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sbbh" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryLayerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryLayerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Uploadattachmsg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jsonmsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadattachmsgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadattachmsgResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAttachmentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAttachment" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachmentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="NoReceiveDatasSoapIn">
+    <wsdl:part name="parameters" element="tns:NoReceiveDatas" />
+  </wsdl:message>
+  <wsdl:message name="NoReceiveDatasSoapOut">
+    <wsdl:part name="parameters" element="tns:NoReceiveDatasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveDatasSoapIn">
+    <wsdl:part name="parameters" element="tns:ReceiveDatas" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveDatasSoapOut">
+    <wsdl:part name="parameters" element="tns:ReceiveDatasResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveHLFJListSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveHLFJList" />
+  </wsdl:message>
+  <wsdl:message name="SaveHLFJListSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveHLFJListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveHLFJSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveHLFJ" />
+  </wsdl:message>
+  <wsdl:message name="SaveHLFJSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveHLFJResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveLxjzDatasSoapIn">
+    <wsdl:part name="parameters" element="tns:ReceiveLxjzDatas" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveLxjzDatasSoapOut">
+    <wsdl:part name="parameters" element="tns:ReceiveLxjzDatasResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadFileSoapIn">
+    <wsdl:part name="parameters" element="tns:UpLoadFile" />
+  </wsdl:message>
+  <wsdl:message name="UpLoadFileSoapOut">
+    <wsdl:part name="parameters" element="tns:UpLoadFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportData" />
+  </wsdl:message>
+  <wsdl:message name="ImportDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTaskDbSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteTaskDb" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTaskDbSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteTaskDbResponse" />
+  </wsdl:message>
+  <wsdl:message name="BackDataSoapIn">
+    <wsdl:part name="parameters" element="tns:BackData" />
+  </wsdl:message>
+  <wsdl:message name="BackDataSoapOut">
+    <wsdl:part name="parameters" element="tns:BackDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="OSSShptodbSoapIn">
+    <wsdl:part name="parameters" element="tns:OSSShptodb" />
+  </wsdl:message>
+  <wsdl:message name="OSSShptodbSoapOut">
+    <wsdl:part name="parameters" element="tns:OSSShptodbResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLayerStateSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateLayerState" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLayerStateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateLayerStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryLayerSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryLayer" />
+  </wsdl:message>
+  <wsdl:message name="QueryLayerSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryLayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadattachmsgSoapIn">
+    <wsdl:part name="parameters" element="tns:Uploadattachmsg" />
+  </wsdl:message>
+  <wsdl:message name="UploadattachmsgSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadattachmsgResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ImportDataServiceSoap">
+    <wsdl:operation name="GetAttachment">
+      <wsdl:input message="tns:GetAttachmentSoapIn" />
+      <wsdl:output message="tns:GetAttachmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NoReceiveDatas">
+      <wsdl:input message="tns:NoReceiveDatasSoapIn" />
+      <wsdl:output message="tns:NoReceiveDatasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveDatas">
+      <wsdl:input message="tns:ReceiveDatasSoapIn" />
+      <wsdl:output message="tns:ReceiveDatasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveHLFJList">
+      <wsdl:input message="tns:SaveHLFJListSoapIn" />
+      <wsdl:output message="tns:SaveHLFJListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveHLFJ">
+      <wsdl:input message="tns:SaveHLFJSoapIn" />
+      <wsdl:output message="tns:SaveHLFJSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveLxjzDatas">
+      <wsdl:input message="tns:ReceiveLxjzDatasSoapIn" />
+      <wsdl:output message="tns:ReceiveLxjzDatasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadFile">
+      <wsdl:input message="tns:UpLoadFileSoapIn" />
+      <wsdl:output message="tns:UpLoadFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportData">
+      <wsdl:input message="tns:ImportDataSoapIn" />
+      <wsdl:output message="tns:ImportDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaskDb">
+      <wsdl:input message="tns:DeleteTaskDbSoapIn" />
+      <wsdl:output message="tns:DeleteTaskDbSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BackData">
+      <wsdl:input message="tns:BackDataSoapIn" />
+      <wsdl:output message="tns:BackDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OSSShptodb">
+      <wsdl:input message="tns:OSSShptodbSoapIn" />
+      <wsdl:output message="tns:OSSShptodbSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLayerState">
+      <wsdl:input message="tns:UpdateLayerStateSoapIn" />
+      <wsdl:output message="tns:UpdateLayerStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryLayer">
+      <wsdl:input message="tns:QueryLayerSoapIn" />
+      <wsdl:output message="tns:QueryLayerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Uploadattachmsg">
+      <wsdl:input message="tns:UploadattachmsgSoapIn" />
+      <wsdl:output message="tns:UploadattachmsgSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ImportDataServiceSoap" type="tns:ImportDataServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAttachment">
+      <soap:operation soapAction="http://tempuri.org/GetAttachment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NoReceiveDatas">
+      <soap:operation soapAction="http://tempuri.org/NoReceiveDatas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveDatas">
+      <soap:operation soapAction="http://tempuri.org/ReceiveDatas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveHLFJList">
+      <soap:operation soapAction="http://tempuri.org/SaveHLFJList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveHLFJ">
+      <soap:operation soapAction="http://tempuri.org/SaveHLFJ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveLxjzDatas">
+      <soap:operation soapAction="http://tempuri.org/ReceiveLxjzDatas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadFile">
+      <soap:operation soapAction="http://tempuri.org/UpLoadFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportData">
+      <soap:operation soapAction="http://tempuri.org/ImportData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaskDb">
+      <soap:operation soapAction="http://tempuri.org/DeleteTaskDb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BackData">
+      <soap:operation soapAction="http://tempuri.org/BackData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OSSShptodb">
+      <soap:operation soapAction="http://tempuri.org/OSSShptodb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLayerState">
+      <soap:operation soapAction="http://tempuri.org/UpdateLayerState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryLayer">
+      <soap:operation soapAction="http://tempuri.org/QueryLayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Uploadattachmsg">
+      <soap:operation soapAction="http://tempuri.org/Uploadattachmsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ImportDataServiceSoap12" type="tns:ImportDataServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAttachment">
+      <soap12:operation soapAction="http://tempuri.org/GetAttachment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NoReceiveDatas">
+      <soap12:operation soapAction="http://tempuri.org/NoReceiveDatas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveDatas">
+      <soap12:operation soapAction="http://tempuri.org/ReceiveDatas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveHLFJList">
+      <soap12:operation soapAction="http://tempuri.org/SaveHLFJList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveHLFJ">
+      <soap12:operation soapAction="http://tempuri.org/SaveHLFJ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveLxjzDatas">
+      <soap12:operation soapAction="http://tempuri.org/ReceiveLxjzDatas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpLoadFile">
+      <soap12:operation soapAction="http://tempuri.org/UpLoadFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportData">
+      <soap12:operation soapAction="http://tempuri.org/ImportData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaskDb">
+      <soap12:operation soapAction="http://tempuri.org/DeleteTaskDb" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BackData">
+      <soap12:operation soapAction="http://tempuri.org/BackData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OSSShptodb">
+      <soap12:operation soapAction="http://tempuri.org/OSSShptodb" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLayerState">
+      <soap12:operation soapAction="http://tempuri.org/UpdateLayerState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryLayer">
+      <soap12:operation soapAction="http://tempuri.org/QueryLayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Uploadattachmsg">
+      <soap12:operation soapAction="http://tempuri.org/Uploadattachmsg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ImportDataService">
+    <wsdl:port name="ImportDataServiceSoap" binding="tns:ImportDataServiceSoap">
+      <soap:address location="http://localhost:9000/ImportDataService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ImportDataServiceSoap12" binding="tns:ImportDataServiceSoap12">
+      <soap12:address location="http://localhost:9000/ImportDataService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

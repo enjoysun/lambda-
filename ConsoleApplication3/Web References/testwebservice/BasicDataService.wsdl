@@ -1,0 +1,1359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetAllHcry">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllHcryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllHcryResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SingleResultOfString">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Result">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckDevice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sbbh" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckDeviceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckDeviceResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHcqy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sbbh" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sbyt" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHcqyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHcqyResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHcqyByhcdw">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hcdwbsm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sylx" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHcqyByhcdwResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHcqyByhcdwResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllHcqy">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllHcqyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllHcqyResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xzqdm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataListResult" type="tns:BatchResultOfHcDataEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BatchResultOfHcDataEntity">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Data" type="tns:ArrayOfHcDataEntity" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfHcDataEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HcDataEntity" nillable="true" type="tns:HcDataEntity" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HcDataEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DownUrl" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLsrwByRybsm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rybh" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLsrwByRybsmResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLsrwByRybsmResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLsrwByRybsm2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rybh" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xzqdm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLsrwByRybsm2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLsrwByRybsm2Result" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHcrwxxbyXzq">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xzq" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHcrwxxbyXzqResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHcrwxxbyXzqResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageByRybh">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rybh" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageByRybhResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMessageByRybhResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReportFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dataLength" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="firstChunk" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastChunk" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="xzqdm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReportFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReportFileResult" type="tns:SingleResultOfBoolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SingleResultOfBoolean">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Data" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="NewVideoMark">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="markPersonID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="markPersonName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="markStartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="markEndDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="markDetails" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xtlx" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewVideoMarkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NewVideoMarkResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelVideoMark">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="newMarkBsm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelVideoMarkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancelVideoMarkResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVideoMark">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="markPersonId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="markStatus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xtlx" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVideoMarkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVideoMarkResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="osType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="verCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAppVersionResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LxjzLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LxjzLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LxjzLoginResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeviceIsRegister">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sbbh" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="clientType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeviceIsRegisterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceIsRegisterResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeviceIsRegister2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sbbh" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="clientType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeviceIsRegister2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceIsRegister2Result" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDeviceAuthentication">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sbbh" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDeviceAuthenticationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateDeviceAuthenticationResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeviceIsRegisterNew">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sbbh" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeviceIsRegisterNewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceIsRegisterNewResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeviceRegister">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="registerJson" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeviceRegisterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceRegisterResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLxjzXzq">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLxjzXzqResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLxjzXzqResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xzqdm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParamsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetParamsResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPhotoPoint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xzqdm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPhotoPointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPhotoPointResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLayers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sbbh" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLayersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLayersResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLayersByXzqdm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sbbh" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xzqdm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLayersByXzqdmResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLayersByXzqdmResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLayersNew">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sbbh" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sbytStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLayersNewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLayersNewResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLayersByXzqdmNew">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sbbh" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xzqdm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sbytStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLayersByXzqdmNewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLayersByXzqdmNewResult" type="tns:SingleResultOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BreakpointResumeFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="base64Source" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="startIndex" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="firstChunk" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastChunk" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="xzqdm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BreakpointResumeFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BreakpointResumeFileResult" type="tns:SingleResultOfInt64" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SingleResultOfInt64">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Data" type="s:long" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="Errorlogrecardtodb">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="errormsg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errortype" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="plat" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="errortagetisite" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorsource" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ErrorlogrecardtodbResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAllHcrySoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllHcry" />
+  </wsdl:message>
+  <wsdl:message name="GetAllHcrySoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllHcryResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckDeviceSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckDevice" />
+  </wsdl:message>
+  <wsdl:message name="CheckDeviceSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHcqySoapIn">
+    <wsdl:part name="parameters" element="tns:GetHcqy" />
+  </wsdl:message>
+  <wsdl:message name="GetHcqySoapOut">
+    <wsdl:part name="parameters" element="tns:GetHcqyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHcqyByhcdwSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHcqyByhcdw" />
+  </wsdl:message>
+  <wsdl:message name="GetHcqyByhcdwSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHcqyByhcdwResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllHcqySoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllHcqy" />
+  </wsdl:message>
+  <wsdl:message name="GetAllHcqySoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllHcqyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataList" />
+  </wsdl:message>
+  <wsdl:message name="GetDataListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLsrwByRybsmSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLsrwByRybsm" />
+  </wsdl:message>
+  <wsdl:message name="GetLsrwByRybsmSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLsrwByRybsmResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLsrwByRybsm2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetLsrwByRybsm2" />
+  </wsdl:message>
+  <wsdl:message name="GetLsrwByRybsm2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetLsrwByRybsm2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetHcrwxxbyXzqSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHcrwxxbyXzq" />
+  </wsdl:message>
+  <wsdl:message name="GetHcrwxxbyXzqSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHcrwxxbyXzqResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageByRybhSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessageByRybh" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageByRybhSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageByRybhResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportFileSoapIn">
+    <wsdl:part name="parameters" element="tns:ReportFile" />
+  </wsdl:message>
+  <wsdl:message name="ReportFileSoapOut">
+    <wsdl:part name="parameters" element="tns:ReportFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewVideoMarkSoapIn">
+    <wsdl:part name="parameters" element="tns:NewVideoMark" />
+  </wsdl:message>
+  <wsdl:message name="NewVideoMarkSoapOut">
+    <wsdl:part name="parameters" element="tns:NewVideoMarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelVideoMarkSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelVideoMark" />
+  </wsdl:message>
+  <wsdl:message name="CancelVideoMarkSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelVideoMarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVideoMarkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVideoMark" />
+  </wsdl:message>
+  <wsdl:message name="GetVideoMarkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVideoMarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAppVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAppVersion" />
+  </wsdl:message>
+  <wsdl:message name="GetAppVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAppVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="LxjzLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:LxjzLogin" />
+  </wsdl:message>
+  <wsdl:message name="LxjzLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LxjzLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeviceIsRegisterSoapIn">
+    <wsdl:part name="parameters" element="tns:DeviceIsRegister" />
+  </wsdl:message>
+  <wsdl:message name="DeviceIsRegisterSoapOut">
+    <wsdl:part name="parameters" element="tns:DeviceIsRegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeviceIsRegister2SoapIn">
+    <wsdl:part name="parameters" element="tns:DeviceIsRegister2" />
+  </wsdl:message>
+  <wsdl:message name="DeviceIsRegister2SoapOut">
+    <wsdl:part name="parameters" element="tns:DeviceIsRegister2Response" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDeviceAuthenticationSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDeviceAuthentication" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDeviceAuthenticationSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDeviceAuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeviceIsRegisterNewSoapIn">
+    <wsdl:part name="parameters" element="tns:DeviceIsRegisterNew" />
+  </wsdl:message>
+  <wsdl:message name="DeviceIsRegisterNewSoapOut">
+    <wsdl:part name="parameters" element="tns:DeviceIsRegisterNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeviceRegisterSoapIn">
+    <wsdl:part name="parameters" element="tns:DeviceRegister" />
+  </wsdl:message>
+  <wsdl:message name="DeviceRegisterSoapOut">
+    <wsdl:part name="parameters" element="tns:DeviceRegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLxjzXzqSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLxjzXzq" />
+  </wsdl:message>
+  <wsdl:message name="GetLxjzXzqSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLxjzXzqResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetParams" />
+  </wsdl:message>
+  <wsdl:message name="GetParamsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPhotoPointSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPhotoPoint" />
+  </wsdl:message>
+  <wsdl:message name="GetPhotoPointSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPhotoPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLayersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLayers" />
+  </wsdl:message>
+  <wsdl:message name="GetLayersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLayersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLayersByXzqdmSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLayersByXzqdm" />
+  </wsdl:message>
+  <wsdl:message name="GetLayersByXzqdmSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLayersByXzqdmResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLayersNewSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLayersNew" />
+  </wsdl:message>
+  <wsdl:message name="GetLayersNewSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLayersNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLayersByXzqdmNewSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLayersByXzqdmNew" />
+  </wsdl:message>
+  <wsdl:message name="GetLayersByXzqdmNewSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLayersByXzqdmNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="BreakpointResumeFileSoapIn">
+    <wsdl:part name="parameters" element="tns:BreakpointResumeFile" />
+  </wsdl:message>
+  <wsdl:message name="BreakpointResumeFileSoapOut">
+    <wsdl:part name="parameters" element="tns:BreakpointResumeFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ErrorlogrecardtodbSoapIn">
+    <wsdl:part name="parameters" element="tns:Errorlogrecardtodb" />
+  </wsdl:message>
+  <wsdl:message name="ErrorlogrecardtodbSoapOut">
+    <wsdl:part name="parameters" element="tns:ErrorlogrecardtodbResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BasicDataServiceSoap">
+    <wsdl:operation name="GetAllHcry">
+      <wsdl:input message="tns:GetAllHcrySoapIn" />
+      <wsdl:output message="tns:GetAllHcrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckDevice">
+      <wsdl:input message="tns:CheckDeviceSoapIn" />
+      <wsdl:output message="tns:CheckDeviceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHcqy">
+      <wsdl:input message="tns:GetHcqySoapIn" />
+      <wsdl:output message="tns:GetHcqySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHcqyByhcdw">
+      <wsdl:input message="tns:GetHcqyByhcdwSoapIn" />
+      <wsdl:output message="tns:GetHcqyByhcdwSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllHcqy">
+      <wsdl:input message="tns:GetAllHcqySoapIn" />
+      <wsdl:output message="tns:GetAllHcqySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataList">
+      <wsdl:input message="tns:GetDataListSoapIn" />
+      <wsdl:output message="tns:GetDataListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLsrwByRybsm">
+      <wsdl:input message="tns:GetLsrwByRybsmSoapIn" />
+      <wsdl:output message="tns:GetLsrwByRybsmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLsrwByRybsm2">
+      <wsdl:input message="tns:GetLsrwByRybsm2SoapIn" />
+      <wsdl:output message="tns:GetLsrwByRybsm2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHcrwxxbyXzq">
+      <wsdl:input message="tns:GetHcrwxxbyXzqSoapIn" />
+      <wsdl:output message="tns:GetHcrwxxbyXzqSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageByRybh">
+      <wsdl:input message="tns:GetMessageByRybhSoapIn" />
+      <wsdl:output message="tns:GetMessageByRybhSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportFile">
+      <wsdl:input message="tns:ReportFileSoapIn" />
+      <wsdl:output message="tns:ReportFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewVideoMark">
+      <wsdl:input message="tns:NewVideoMarkSoapIn" />
+      <wsdl:output message="tns:NewVideoMarkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelVideoMark">
+      <wsdl:input message="tns:CancelVideoMarkSoapIn" />
+      <wsdl:output message="tns:CancelVideoMarkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoMark">
+      <wsdl:input message="tns:GetVideoMarkSoapIn" />
+      <wsdl:output message="tns:GetVideoMarkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppVersion">
+      <wsdl:input message="tns:GetAppVersionSoapIn" />
+      <wsdl:output message="tns:GetAppVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LxjzLogin">
+      <wsdl:input message="tns:LxjzLoginSoapIn" />
+      <wsdl:output message="tns:LxjzLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeviceIsRegister">
+      <wsdl:input message="tns:DeviceIsRegisterSoapIn" />
+      <wsdl:output message="tns:DeviceIsRegisterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeviceIsRegister2">
+      <wsdl:input message="tns:DeviceIsRegister2SoapIn" />
+      <wsdl:output message="tns:DeviceIsRegister2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDeviceAuthentication">
+      <wsdl:input message="tns:UpdateDeviceAuthenticationSoapIn" />
+      <wsdl:output message="tns:UpdateDeviceAuthenticationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeviceIsRegisterNew">
+      <wsdl:input message="tns:DeviceIsRegisterNewSoapIn" />
+      <wsdl:output message="tns:DeviceIsRegisterNewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeviceRegister">
+      <wsdl:input message="tns:DeviceRegisterSoapIn" />
+      <wsdl:output message="tns:DeviceRegisterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLxjzXzq">
+      <wsdl:input message="tns:GetLxjzXzqSoapIn" />
+      <wsdl:output message="tns:GetLxjzXzqSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParams">
+      <wsdl:input message="tns:GetParamsSoapIn" />
+      <wsdl:output message="tns:GetParamsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoPoint">
+      <wsdl:input message="tns:GetPhotoPointSoapIn" />
+      <wsdl:output message="tns:GetPhotoPointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLayers">
+      <wsdl:input message="tns:GetLayersSoapIn" />
+      <wsdl:output message="tns:GetLayersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLayersByXzqdm">
+      <wsdl:input message="tns:GetLayersByXzqdmSoapIn" />
+      <wsdl:output message="tns:GetLayersByXzqdmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLayersNew">
+      <wsdl:input message="tns:GetLayersNewSoapIn" />
+      <wsdl:output message="tns:GetLayersNewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLayersByXzqdmNew">
+      <wsdl:input message="tns:GetLayersByXzqdmNewSoapIn" />
+      <wsdl:output message="tns:GetLayersByXzqdmNewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BreakpointResumeFile">
+      <wsdl:input message="tns:BreakpointResumeFileSoapIn" />
+      <wsdl:output message="tns:BreakpointResumeFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Errorlogrecardtodb">
+      <wsdl:input message="tns:ErrorlogrecardtodbSoapIn" />
+      <wsdl:output message="tns:ErrorlogrecardtodbSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicDataServiceSoap" type="tns:BasicDataServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllHcry">
+      <soap:operation soapAction="http://tempuri.org/GetAllHcry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckDevice">
+      <soap:operation soapAction="http://tempuri.org/CheckDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHcqy">
+      <soap:operation soapAction="http://tempuri.org/GetHcqy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHcqyByhcdw">
+      <soap:operation soapAction="http://tempuri.org/GetHcqyByhcdw" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllHcqy">
+      <soap:operation soapAction="http://tempuri.org/GetAllHcqy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataList">
+      <soap:operation soapAction="http://tempuri.org/GetDataList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLsrwByRybsm">
+      <soap:operation soapAction="http://tempuri.org/GetLsrwByRybsm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLsrwByRybsm2">
+      <soap:operation soapAction="http://tempuri.org/GetLsrwByRybsm2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHcrwxxbyXzq">
+      <soap:operation soapAction="http://tempuri.org/GetHcrwxxbyXzq" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageByRybh">
+      <soap:operation soapAction="http://tempuri.org/GetMessageByRybh" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportFile">
+      <soap:operation soapAction="http://tempuri.org/ReportFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewVideoMark">
+      <soap:operation soapAction="http://tempuri.org/NewVideoMark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelVideoMark">
+      <soap:operation soapAction="http://tempuri.org/CancelVideoMark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoMark">
+      <soap:operation soapAction="http://tempuri.org/GetVideoMark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppVersion">
+      <soap:operation soapAction="http://tempuri.org/GetAppVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LxjzLogin">
+      <soap:operation soapAction="http://tempuri.org/LxjzLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeviceIsRegister">
+      <soap:operation soapAction="http://tempuri.org/DeviceIsRegister" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeviceIsRegister2">
+      <soap:operation soapAction="http://tempuri.org/DeviceIsRegister2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDeviceAuthentication">
+      <soap:operation soapAction="http://tempuri.org/UpdateDeviceAuthentication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeviceIsRegisterNew">
+      <soap:operation soapAction="http://tempuri.org/DeviceIsRegisterNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeviceRegister">
+      <soap:operation soapAction="http://tempuri.org/DeviceRegister" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLxjzXzq">
+      <soap:operation soapAction="http://tempuri.org/GetLxjzXzq" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParams">
+      <soap:operation soapAction="http://tempuri.org/GetParams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoPoint">
+      <soap:operation soapAction="http://tempuri.org/GetPhotoPoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLayers">
+      <soap:operation soapAction="http://tempuri.org/GetLayers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLayersByXzqdm">
+      <soap:operation soapAction="http://tempuri.org/GetLayersByXzqdm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLayersNew">
+      <soap:operation soapAction="http://tempuri.org/GetLayersNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLayersByXzqdmNew">
+      <soap:operation soapAction="http://tempuri.org/GetLayersByXzqdmNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BreakpointResumeFile">
+      <soap:operation soapAction="http://tempuri.org/BreakpointResumeFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Errorlogrecardtodb">
+      <soap:operation soapAction="http://tempuri.org/Errorlogrecardtodb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicDataServiceSoap12" type="tns:BasicDataServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllHcry">
+      <soap12:operation soapAction="http://tempuri.org/GetAllHcry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckDevice">
+      <soap12:operation soapAction="http://tempuri.org/CheckDevice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHcqy">
+      <soap12:operation soapAction="http://tempuri.org/GetHcqy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHcqyByhcdw">
+      <soap12:operation soapAction="http://tempuri.org/GetHcqyByhcdw" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllHcqy">
+      <soap12:operation soapAction="http://tempuri.org/GetAllHcqy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataList">
+      <soap12:operation soapAction="http://tempuri.org/GetDataList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLsrwByRybsm">
+      <soap12:operation soapAction="http://tempuri.org/GetLsrwByRybsm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLsrwByRybsm2">
+      <soap12:operation soapAction="http://tempuri.org/GetLsrwByRybsm2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHcrwxxbyXzq">
+      <soap12:operation soapAction="http://tempuri.org/GetHcrwxxbyXzq" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageByRybh">
+      <soap12:operation soapAction="http://tempuri.org/GetMessageByRybh" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportFile">
+      <soap12:operation soapAction="http://tempuri.org/ReportFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewVideoMark">
+      <soap12:operation soapAction="http://tempuri.org/NewVideoMark" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelVideoMark">
+      <soap12:operation soapAction="http://tempuri.org/CancelVideoMark" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoMark">
+      <soap12:operation soapAction="http://tempuri.org/GetVideoMark" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppVersion">
+      <soap12:operation soapAction="http://tempuri.org/GetAppVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LxjzLogin">
+      <soap12:operation soapAction="http://tempuri.org/LxjzLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeviceIsRegister">
+      <soap12:operation soapAction="http://tempuri.org/DeviceIsRegister" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeviceIsRegister2">
+      <soap12:operation soapAction="http://tempuri.org/DeviceIsRegister2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDeviceAuthentication">
+      <soap12:operation soapAction="http://tempuri.org/UpdateDeviceAuthentication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeviceIsRegisterNew">
+      <soap12:operation soapAction="http://tempuri.org/DeviceIsRegisterNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeviceRegister">
+      <soap12:operation soapAction="http://tempuri.org/DeviceRegister" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLxjzXzq">
+      <soap12:operation soapAction="http://tempuri.org/GetLxjzXzq" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParams">
+      <soap12:operation soapAction="http://tempuri.org/GetParams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoPoint">
+      <soap12:operation soapAction="http://tempuri.org/GetPhotoPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLayers">
+      <soap12:operation soapAction="http://tempuri.org/GetLayers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLayersByXzqdm">
+      <soap12:operation soapAction="http://tempuri.org/GetLayersByXzqdm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLayersNew">
+      <soap12:operation soapAction="http://tempuri.org/GetLayersNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLayersByXzqdmNew">
+      <soap12:operation soapAction="http://tempuri.org/GetLayersByXzqdmNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BreakpointResumeFile">
+      <soap12:operation soapAction="http://tempuri.org/BreakpointResumeFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Errorlogrecardtodb">
+      <soap12:operation soapAction="http://tempuri.org/Errorlogrecardtodb" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BasicDataService">
+    <wsdl:port name="BasicDataServiceSoap" binding="tns:BasicDataServiceSoap">
+      <soap:address location="http://localhost:9000/BasicDataService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BasicDataServiceSoap12" binding="tns:BasicDataServiceSoap12">
+      <soap12:address location="http://localhost:9000/BasicDataService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
